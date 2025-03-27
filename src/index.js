@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 const corsOptions = {
     origin: 'https://try-front.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type, Authorization'],
   };
 
 app.use(cors(corsOptions));
