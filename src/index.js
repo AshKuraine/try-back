@@ -6,7 +6,13 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://try-front.vercel.app/',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+  };
+
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json());
 
@@ -15,5 +21,5 @@ app.use('/api/orderProducts', require('./routes/orderProduct'));
 app.use('/api/products', require('./routes/product'));
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Hello World from Express with CORS enabled!`);
 });
